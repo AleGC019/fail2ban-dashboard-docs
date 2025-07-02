@@ -15,16 +15,13 @@ theme:
     toggle:
       icon: material/brightness-7
       name: Cambiar a modo oscuro
-    background: '#E8F1EC'
-    text: '#15372F'
   - scheme: slate
     primary: custom
     accent: custom
     toggle:
       icon: material/brightness-4
       name: Cambiar a modo claro
-    background: '#15372F'
-    text: '#E8F1EC'
+
   features:
     - navigation.tabs
     - navigation.sections
