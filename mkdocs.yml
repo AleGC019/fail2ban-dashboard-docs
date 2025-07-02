@@ -6,21 +6,25 @@ site_url: https://alegc019.github.io/fail2ban-dashboard-docs
 theme:
   name: material
   language: es
-  favicon: assets/text.png
-  logo: assets/logo.png
+  favicon: assets/logo.png
+  logo: assets/text.png
   palette:
-    - scheme: default
-      primary: blue grey
-      accent: orange
-      toggle:
-        icon: material/brightness-7
-        name: Cambiar a modo oscuro
-    - scheme: slate
-      primary: blue grey
-      accent: orange
-      toggle:
-        icon: material/brightness-4
-        name: Cambiar a modo claro
+  - scheme: default
+    primary: custom
+    accent: custom
+    toggle:
+      icon: material/brightness-7
+      name: Cambiar a modo oscuro
+    background: '#E8F1EC'
+    text: '#15372F'
+  - scheme: slate
+    primary: custom
+    accent: custom
+    toggle:
+      icon: material/brightness-4
+      name: Cambiar a modo claro
+    background: '#15372F'
+    text: '#E8F1EC'
   features:
     - navigation.tabs
     - navigation.sections
@@ -30,6 +34,9 @@ theme:
     - search.share
     - content.code.copy
     - content.code.annotate
+
+extra_css:
+  - assets/extra.css
 
 markdown_extensions:
   - admonition
@@ -58,6 +65,9 @@ markdown_extensions:
 
 nav:
   - Inicio: index.md
+  - API Reference:
+    - Referencia de la API: api/reference.md
+    - Autenticación: api/authentication.md
   - Arquitectura del Sistema:
     - Descripción General: arquitectura/overview.md
     - Componentes: arquitectura/components.md
@@ -72,16 +82,21 @@ nav:
     - Loki: servicios/loki.md
     - API FastAPI: servicios/api.md
     - Caddy: servicios/caddy.md
+    - Docker: servicios/docker.md
   - Frontend Dashboard:
-    - Introducción: frontend/overview.md
-    - Configuración: frontend/setup.md
-    - Funcionalidades: frontend/features.md
+    - Introducción: frontend/features.md
+    - Despliegue: frontend/deployment.md
+    - Componentes: frontend/components.md
   - Despliegue y Operación:
     - Instalación: deployment/installation.md
     - Mantenimiento: deployment/maintenance.md
     - Troubleshooting: deployment/troubleshooting.md
-  - Seguridad: security/overview.md
-  - API Reference: api/reference.md
+  - Seguridad: 
+    - Buenas Prácticas: security/best-practices.md
+    - Descripción General: security/overview.md
+    - SSL-TLS: security/ssl-tls.md
+    - Fail2ban: security/fail2ban.md
+
 
 plugins:
   - search:
