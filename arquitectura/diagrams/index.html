@@ -1,0 +1,2417 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación completa del sistema de monitoreo Fail2ban">
+      
+      
+        <meta name="author" content="Alejandro Gómez">
+      
+      
+        <link rel="canonical" href="https://github.com/AleGC019/fail2ban-dashboard-docs.git/arquitectura/diagrams/">
+      
+      
+        <link rel="prev" href="../components/">
+      
+      
+        <link rel="next" href="../../servidor/droplet-setup/">
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Diagramas - Fail2ban Dashboard - Documentación Técnica</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#diagramas-de-arquitectura" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Fail2ban Dashboard - Documentación Técnica" class="md-header__button md-logo" aria-label="Fail2ban Dashboard - Documentación Técnica" data-md-component="logo">
+      
+  <img src="../../assets/text.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fail2ban Dashboard - Documentación Técnica
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Diagramas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../api/reference/" class="md-tabs__link">
+          
+  
+  
+  API Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../overview/" class="md-tabs__link">
+          
+  
+  
+  Arquitectura del Sistema
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../servidor/droplet-setup/" class="md-tabs__link">
+          
+  
+  
+  Configuración del Servidor
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../servicios/fail2ban/" class="md-tabs__link">
+          
+  
+  
+  Servicios Backend
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../frontend/features/" class="md-tabs__link">
+          
+  
+  
+  Frontend Dashboard
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../deployment/installation/" class="md-tabs__link">
+          
+  
+  
+  Despliegue y Operación
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../security/best-practices/" class="md-tabs__link">
+          
+  
+  
+  Seguridad
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Fail2ban Dashboard - Documentación Técnica" class="md-nav__button md-logo" aria-label="Fail2ban Dashboard - Documentación Técnica" data-md-component="logo">
+      
+  <img src="../../assets/text.png" alt="logo">
+
+    </a>
+    Fail2ban Dashboard - Documentación Técnica
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Referencia de la API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autenticación
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Arquitectura del Sistema
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Arquitectura del Sistema
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Descripción General
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Componentes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Diagramas
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Diagramas
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-de-infraestructura" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Arquitectura de Infraestructura
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ Arquitectura de Infraestructura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vista-general-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vista General del Sistema
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 Arquitectura de Red
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌐 Arquitectura de Red">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-puertos-y-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración de Puertos y Firewall
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flujo-de-red-detallado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flujo de Red Detallado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujo-de-datos-y-procesamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Flujo de Datos y Procesamiento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Flujo de Datos y Procesamiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipeline-completo-de-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipeline Completo de Logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estados-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estados del Sistema
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-de-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Arquitectura de Despliegue
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Arquitectura de Despliegue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flujo-de-cicd-y-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flujo de CI/CD y Despliegue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrategia-de-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estrategia de Actualización
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔐 Arquitectura de Seguridad
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 Arquitectura de Seguridad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capas-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capas de Seguridad
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flujo-de-autenticacion-y-autorizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flujo de Autenticación y Autorización
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-de-monitoreo" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 Arquitectura de Monitoreo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Arquitectura de Monitoreo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sistema-de-observabilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistema de Observabilidad
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escalabilidad-y-alta-disponibilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Escalabilidad y Alta Disponibilidad
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Escalabilidad y Alta Disponibilidad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-escalable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitectura Escalable
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configuración del Servidor
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Configuración del Servidor
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../servidor/droplet-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Preparación del Droplet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../servidor/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Seguridad
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../servidor/software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Software Base
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Servicios Backend
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Servicios Backend
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../servicios/fail2ban/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fail2ban
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../servicios/promtail/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Promtail
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../servicios/loki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Loki
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../servicios/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API FastAPI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../servicios/caddy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Caddy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../servicios/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Frontend Dashboard
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Frontend Dashboard
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Despliegue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Componentes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Despliegue y Operación
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Despliegue y Operación
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Instalación
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/maintenance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mantenimiento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Seguridad
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Seguridad
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Buenas Prácticas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Descripción General
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/ssl-tls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSL-TLS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/fail2ban/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fail2ban
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-de-infraestructura" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Arquitectura de Infraestructura
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ Arquitectura de Infraestructura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vista-general-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vista General del Sistema
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 Arquitectura de Red
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌐 Arquitectura de Red">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-puertos-y-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración de Puertos y Firewall
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flujo-de-red-detallado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flujo de Red Detallado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujo-de-datos-y-procesamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Flujo de Datos y Procesamiento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Flujo de Datos y Procesamiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipeline-completo-de-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipeline Completo de Logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estados-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estados del Sistema
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-de-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Arquitectura de Despliegue
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Arquitectura de Despliegue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flujo-de-cicd-y-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flujo de CI/CD y Despliegue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrategia-de-actualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estrategia de Actualización
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔐 Arquitectura de Seguridad
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 Arquitectura de Seguridad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capas-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capas de Seguridad
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flujo-de-autenticacion-y-autorizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flujo de Autenticación y Autorización
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-de-monitoreo" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 Arquitectura de Monitoreo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Arquitectura de Monitoreo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sistema-de-observabilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistema de Observabilidad
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escalabilidad-y-alta-disponibilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Escalabilidad y Alta Disponibilidad
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Escalabilidad y Alta Disponibilidad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura-escalable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitectura Escalable
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="diagramas-de-arquitectura">🗺️ Diagramas de Arquitectura<a class="headerlink" href="#diagramas-de-arquitectura" title="Permanent link">#</a></h1>
+<h2 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">#</a></h2>
+<p>Esta sección presenta diagramas técnicos detallados que muestran la arquitectura del sistema desde diferentes perspectivas: infraestructura, flujo de datos, redes y despliegue.</p>
+<h2 id="arquitectura-de-infraestructura">🏗️ Arquitectura de Infraestructura<a class="headerlink" href="#arquitectura-de-infraestructura" title="Permanent link">#</a></h2>
+<h3 id="vista-general-del-sistema">Vista General del Sistema<a class="headerlink" href="#vista-general-del-sistema" title="Permanent link">#</a></h3>
+<pre class="mermaid"><code>graph TB
+    subgraph "Internet"
+        USER[👤 Usuarios]
+        DNS[🌐 Namecheap DNS]
+        LE[🔒 Let's Encrypt]
+    end
+
+    subgraph "DigitalOcean Cloud"
+        subgraph "Cloud Firewall"
+            FW_SSH[SSH:22]
+            FW_HTTP[HTTP:80]
+            FW_HTTPS[HTTPS:443]
+        end
+
+        subgraph "Ubuntu 22.04 Droplet"
+            subgraph "Host Services"
+                CADDY[🔒 Caddy v2]
+                FAIL2BAN[🛡️ Fail2ban]
+                DOCKER[🐳 Docker Engine]
+                UFW[🔥 ufw Firewall]
+            end
+
+            subgraph "Docker Network (fail2ban_network)"
+                API[⚙️ FastAPI Container]
+                LOKI[🗄️ Loki Container]
+                PROMTAIL[📜 Promtail Container]
+            end
+
+            subgraph "File System"
+                LOGS[📁 /var/log/fail2ban.log]
+                SOCKET[🔌 /var/run/fail2ban/fail2ban.sock]
+                LOKI_DATA[💾 loki_data volume]
+            end
+        end
+    end
+
+    USER --&gt;|HTTPS Request| DNS
+    DNS --&gt;|Resolves to| FW_HTTPS
+    FW_HTTPS --&gt; CADDY
+
+    CADDY --&gt;|Reverse Proxy| API
+    CADDY &lt;--&gt;|Certificate Validation| LE
+
+    API --&gt;|Unix Socket| SOCKET
+    API --&gt;|HTTP Queries| LOKI
+
+    FAIL2BAN --&gt; LOGS
+    FAIL2BAN --&gt; SOCKET
+
+    PROMTAIL --&gt;|Reads| LOGS
+    PROMTAIL --&gt;|Ships Logs| LOKI
+
+    LOKI --&gt; LOKI_DATA
+
+    DOCKER --&gt;|Manages| API
+    DOCKER --&gt;|Manages| LOKI
+    DOCKER --&gt;|Manages| PROMTAIL</code></pre>
+<h2 id="arquitectura-de-red">🌐 Arquitectura de Red<a class="headerlink" href="#arquitectura-de-red" title="Permanent link">#</a></h2>
+<h3 id="configuracion-de-puertos-y-firewall">Configuración de Puertos y Firewall<a class="headerlink" href="#configuracion-de-puertos-y-firewall" title="Permanent link">#</a></h3>
+<pre class="mermaid"><code>graph LR
+    subgraph "External Network"
+        INTERNET[🌍 Internet]
+    end
+
+    subgraph "DigitalOcean Cloud Firewall"
+        CF_22[Port 22/TCP&lt;br/&gt;SSH Access]
+        CF_80[Port 80/TCP&lt;br/&gt;HTTP&lt;br/&gt;Let's Encrypt]
+        CF_443[Port 443/TCP&lt;br/&gt;HTTPS&lt;br/&gt;Production Traffic]
+        CF_BLOCK[❌ Port 8000/TCP&lt;br/&gt;BLOCKED&lt;br/&gt;Direct API Access]
+    end
+
+    subgraph "Droplet Internal Network"
+        subgraph "Host Ports"
+            H_22[22 → SSH]
+            H_80[80 → Caddy]
+            H_443[443 → Caddy]
+            H_8000[8000 → API Container]
+        end
+
+        subgraph "Docker Bridge Network"
+            D_API[API:8000]
+            D_LOKI[Loki:3100]
+            D_PROMTAIL[Promtail:9080]
+        end
+    end
+
+    INTERNET --&gt; CF_22
+    INTERNET --&gt; CF_80
+    INTERNET --&gt; CF_443
+    INTERNET -.-&gt;|BLOCKED| CF_BLOCK
+
+    CF_22 --&gt; H_22
+    CF_80 --&gt; H_80
+    CF_443 --&gt; H_443
+
+    H_80 --&gt; D_API
+    H_443 --&gt; D_API
+    H_8000 --&gt; D_API
+
+    D_API &lt;--&gt; D_LOKI
+    D_PROMTAIL --&gt; D_LOKI</code></pre>
+<h3 id="flujo-de-red-detallado">Flujo de Red Detallado<a class="headerlink" href="#flujo-de-red-detallado" title="Permanent link">#</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Configuración de Seguridad de Red</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Puertos Expuestos</label><label for="__tabbed_1_2">Puertos Internos</label><label for="__tabbed_1_3">Bloqueos Críticos</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><strong>22/TCP</strong>: SSH para administración (restringir por IP)</li>
+<li><strong>80/TCP</strong>: HTTP para validación Let's Encrypt</li>
+<li><strong>443/TCP</strong>: HTTPS para tráfico de producción</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><strong>8000/TCP</strong>: API FastAPI (solo localhost)</li>
+<li><strong>3100/TCP</strong>: Loki (solo red Docker)</li>
+<li><strong>9080/TCP</strong>: Promtail (solo red Docker)</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>❌ Puerto 8000 <strong>NO</strong> debe estar abierto en Cloud Firewall</li>
+<li>❌ Puertos 3100, 9080 <strong>NO</strong> deben ser accesibles externamente</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<h2 id="flujo-de-datos-y-procesamiento">📊 Flujo de Datos y Procesamiento<a class="headerlink" href="#flujo-de-datos-y-procesamiento" title="Permanent link">#</a></h2>
+<h3 id="pipeline-completo-de-logs">Pipeline Completo de Logs<a class="headerlink" href="#pipeline-completo-de-logs" title="Permanent link">#</a></h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant SS as Suspicious Source
+    participant SRV as Server Service
+    participant FB as Fail2ban
+    participant FS as File System
+    participant PT as Promtail
+    participant LK as Loki
+    participant API as FastAPI
+    participant CD as Caddy
+    participant USR as User Dashboard
+
+    Note over SS,SRV: 1. Intento de Intrusión
+    SS-&gt;&gt;+SRV: Múltiples intentos SSH fallidos
+    SRV-&gt;&gt;FS: Escribe en /var/log/auth.log
+
+    Note over FB: 2. Detección y Baneo
+    FB-&gt;&gt;FS: Monitorea auth.log
+    FB-&gt;&gt;FB: Detecta patrón malicioso
+    FB-&gt;&gt;SRV: Aplica regla iptables
+    FB-&gt;&gt;FS: Escribe en fail2ban.log
+
+    Note over PT,LK: 3. Recolección de Logs
+    PT-&gt;&gt;FS: Lee fail2ban.log
+    PT-&gt;&gt;PT: Procesa con regex
+    PT-&gt;&gt;+LK: Envía logs estructurados
+    LK-&gt;&gt;LK: Indexa por etiquetas
+
+    Note over API,USR: 4. Visualización
+    USR-&gt;&gt;CD: Accede al dashboard
+    CD-&gt;&gt;API: Proxy HTTPS request
+    API-&gt;&gt;LK: Query logs recientes
+    LK-&gt;&gt;API: Retorna datos JSON
+    API-&gt;&gt;CD: Response con datos
+    CD-&gt;&gt;USR: Dashboard actualizado
+
+    Note over USR: 5. Acción del Usuario
+    USR-&gt;&gt;CD: Solicita desbanear IP
+    CD-&gt;&gt;API: POST /jails/sshd/unban
+    API-&gt;&gt;FB: fail2ban-client unban
+    FB-&gt;&gt;SRV: Remueve regla iptables
+    FB-&gt;&gt;FS: Log de desbaneo</code></pre>
+<h3 id="estados-del-sistema">Estados del Sistema<a class="headerlink" href="#estados-del-sistema" title="Permanent link">#</a></h3>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; Normal
+
+    Normal --&gt; Suspicious: Detecta actividad maliciosa
+    Suspicious --&gt; Analyzing: Fail2ban evalúa patrones
+
+    Analyzing --&gt; Banned: Excede threshold
+    Analyzing --&gt; Normal: Dentro de límites
+
+    Banned --&gt; Monitoring: IP baneada
+    Monitoring --&gt; Banned: Mantiene baneo
+    Monitoring --&gt; Normal: Tiempo de baneo expirado
+
+    Banned --&gt; Normal: Admin desbanea manualmente
+
+    state Monitoring {
+        [*] --&gt; Active
+        Active --&gt; Logging: Registra actividad
+        Logging --&gt; Active
+    }</code></pre>
+<h2 id="arquitectura-de-despliegue">🔄 Arquitectura de Despliegue<a class="headerlink" href="#arquitectura-de-despliegue" title="Permanent link">#</a></h2>
+<h3 id="flujo-de-cicd-y-despliegue">Flujo de CI/CD y Despliegue<a class="headerlink" href="#flujo-de-cicd-y-despliegue" title="Permanent link">#</a></h3>
+<pre class="mermaid"><code>graph TB
+    subgraph "Development"
+        DEV[👨‍💻 Developer]
+        GIT[📚 Git Repository]
+    end
+
+    subgraph "Build &amp; Deploy"
+        GHA[🔄 GitHub Actions]
+        DOCKER_BUILD[🐳 Docker Build]
+        DOCKER_PUSH[📤 Docker Push]
+    end
+
+    subgraph "Production Server"
+        PULL[📥 Docker Pull]
+        COMPOSE[🎼 Docker Compose]
+        HEALTH[🏥 Health Checks]
+    end
+
+    subgraph "Monitoring"
+        LOGS_MON[📊 Log Monitoring]
+        ALERTS[🚨 Alerts]
+        METRICS[📈 Metrics]
+    end
+
+    DEV --&gt; GIT
+    GIT --&gt; GHA
+
+    GHA --&gt; DOCKER_BUILD
+    DOCKER_BUILD --&gt; DOCKER_PUSH
+
+    DOCKER_PUSH --&gt; PULL
+    PULL --&gt; COMPOSE
+    COMPOSE --&gt; HEALTH
+
+    HEALTH --&gt; LOGS_MON
+    LOGS_MON --&gt; ALERTS
+    LOGS_MON --&gt; METRICS
+
+    ALERTS --&gt;|Notifica| DEV</code></pre>
+<h3 id="estrategia-de-actualizacion">Estrategia de Actualización<a class="headerlink" href="#estrategia-de-actualizacion" title="Permanent link">#</a></h3>
+<pre class="mermaid"><code>graph LR
+    subgraph "Actualización Zero-Downtime"
+        BACKUP[💾 Backup Data]
+        PULL_NEW[📥 Pull New Images]
+        STOP_OLD[⏹️ Stop Old Containers]
+        START_NEW[▶️ Start New Containers]
+        VERIFY[✅ Verify Health]
+        ROLLBACK[🔄 Rollback if Error]
+    end
+
+    BACKUP --&gt; PULL_NEW
+    PULL_NEW --&gt; STOP_OLD
+    STOP_OLD --&gt; START_NEW
+    START_NEW --&gt; VERIFY
+    VERIFY --&gt;|❌ Error| ROLLBACK
+    VERIFY --&gt;|✅ Success| END[🎉 Deploy Complete]
+    ROLLBACK --&gt; STOP_OLD</code></pre>
+<h2 id="arquitectura-de-seguridad">🔐 Arquitectura de Seguridad<a class="headerlink" href="#arquitectura-de-seguridad" title="Permanent link">#</a></h2>
+<h3 id="capas-de-seguridad">Capas de Seguridad<a class="headerlink" href="#capas-de-seguridad" title="Permanent link">#</a></h3>
+<pre class="mermaid"><code>graph TB
+    subgraph "Security Layers"
+        subgraph "Layer 1: Cloud Infrastructure"
+            CF[🛡️ DigitalOcean Cloud Firewall]
+            DOS[🚫 DDoS Protection]
+        end
+
+        subgraph "Layer 2: Host Level"
+            UFW[🔥 ufw Firewall]
+            FAIL2BAN[🛡️ Fail2ban IPS]
+            SSH_KEY[🔑 SSH Key Auth]
+        end
+
+        subgraph "Layer 3: Application Level"
+            TLS[🔒 TLS/SSL Encryption]
+            CADDY_SEC[🛡️ Caddy Security Headers]
+            API_AUTH[🔐 API Authentication]
+        end
+
+        subgraph "Layer 4: Container Level"
+            DOCKER_NET[🌐 Isolated Docker Networks]
+            CONTAINER_USER[👤 Non-root Containers]
+            VOLUME_PERM[📁 Volume Permissions]
+        end
+    end
+
+    INTERNET[🌍 Internet] --&gt; CF
+    CF --&gt; DOS
+    DOS --&gt; UFW
+    UFW --&gt; FAIL2BAN
+    FAIL2BAN --&gt; SSH_KEY
+    SSH_KEY --&gt; TLS
+    TLS --&gt; CADDY_SEC
+    CADDY_SEC --&gt; API_AUTH
+    API_AUTH --&gt; DOCKER_NET
+    DOCKER_NET --&gt; CONTAINER_USER
+    CONTAINER_USER --&gt; VOLUME_PERM
+    VOLUME_PERM --&gt; SECURE_APP[🎯 Secure Application]</code></pre>
+<h3 id="flujo-de-autenticacion-y-autorizacion">Flujo de Autenticación y Autorización<a class="headerlink" href="#flujo-de-autenticacion-y-autorizacion" title="Permanent link">#</a></h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant C as Client
+    participant CF as Cloud Firewall
+    participant CD as Caddy
+    participant API as FastAPI
+    participant FB as Fail2ban
+
+    Note over C,FB: Security Check Flow
+
+    C-&gt;&gt;CF: Request to server
+    CF-&gt;&gt;CF: Check allowed ports
+    alt Port not allowed
+        CF-&gt;&gt;C: ❌ Block request
+    else Port allowed
+        CF-&gt;&gt;CD: Forward request
+    end
+
+    CD-&gt;&gt;CD: Verify SSL certificate
+    CD-&gt;&gt;CD: Apply security headers
+    CD-&gt;&gt;API: Proxy to API
+
+    API-&gt;&gt;API: Validate request format
+    API-&gt;&gt;API: Check rate limits
+
+    alt Rate limit exceeded
+        API-&gt;&gt;FB: Report suspicious activity
+        FB-&gt;&gt;FB: Evaluate for banning
+        API-&gt;&gt;CD: ❌ Rate limit error
+    else Request valid
+        API-&gt;&gt;API: Process request
+        API-&gt;&gt;CD: ✅ Success response
+    end
+
+    CD-&gt;&gt;C: Final response</code></pre>
+<h2 id="arquitectura-de-monitoreo">📈 Arquitectura de Monitoreo<a class="headerlink" href="#arquitectura-de-monitoreo" title="Permanent link">#</a></h2>
+<h3 id="sistema-de-observabilidad">Sistema de Observabilidad<a class="headerlink" href="#sistema-de-observabilidad" title="Permanent link">#</a></h3>
+<pre class="mermaid"><code>graph TB
+    subgraph "Data Sources"
+        APP_LOGS[📝 Application Logs]
+        SYS_LOGS[📋 System Logs]
+        FAIL2BAN_LOGS[🛡️ Fail2ban Logs]
+        CADDY_LOGS[🔒 Caddy Logs]
+    end
+
+    subgraph "Collection Layer"
+        PROMTAIL[📜 Promtail Agent]
+        FILEBEAT[📊 Log Shippers]
+    end
+
+    subgraph "Storage &amp; Processing"
+        LOKI[🗄️ Loki Log Store]
+        ELASTIC[🔍 Search Engine]
+    end
+
+    subgraph "Visualization"
+        API_ENDPOINT[⚙️ API Endpoints]
+        DASHBOARD[📊 Web Dashboard]
+        GRAFANA[📈 Grafana (Optional)]
+    end
+
+    subgraph "Alerting"
+        WEBHOOKS[🔗 Webhooks]
+        EMAIL[📧 Email Alerts]
+        SLACK[💬 Slack Integration]
+    end
+
+    APP_LOGS --&gt; PROMTAIL
+    SYS_LOGS --&gt; PROMTAIL
+    FAIL2BAN_LOGS --&gt; PROMTAIL
+    CADDY_LOGS --&gt; FILEBEAT
+
+    PROMTAIL --&gt; LOKI
+    FILEBEAT --&gt; ELASTIC
+
+    LOKI --&gt; API_ENDPOINT
+    ELASTIC --&gt; API_ENDPOINT
+
+    API_ENDPOINT --&gt; DASHBOARD
+    API_ENDPOINT --&gt; GRAFANA
+
+    API_ENDPOINT --&gt; WEBHOOKS
+    WEBHOOKS --&gt; EMAIL
+    WEBHOOKS --&gt; SLACK</code></pre>
+<h2 id="escalabilidad-y-alta-disponibilidad">🚀 Escalabilidad y Alta Disponibilidad<a class="headerlink" href="#escalabilidad-y-alta-disponibilidad" title="Permanent link">#</a></h2>
+<h3 id="arquitectura-escalable">Arquitectura Escalable<a class="headerlink" href="#arquitectura-escalable" title="Permanent link">#</a></h3>
+<pre class="mermaid"><code>graph TB
+    subgraph "Load Balancer Tier"
+        LB[⚖️ Load Balancer]
+        CDN[🌐 CDN (Optional)]
+    end
+
+    subgraph "Application Tier"
+        API1[⚙️ API Instance 1]
+        API2[⚙️ API Instance 2]
+        API3[⚙️ API Instance N]
+    end
+
+    subgraph "Data Tier"
+        LOKI_CLUSTER[🗄️ Loki Cluster]
+        DB_BACKUP[💾 Database Backup]
+    end
+
+    subgraph "Monitoring Tier"
+        PROMTAIL_MULTI[📜 Promtail Instances]
+        METRICS[📊 Metrics Collection]
+    end
+
+    CDN --&gt; LB
+    LB --&gt; API1
+    LB --&gt; API2
+    LB --&gt; API3
+
+    API1 --&gt; LOKI_CLUSTER
+    API2 --&gt; LOKI_CLUSTER
+    API3 --&gt; LOKI_CLUSTER
+
+    LOKI_CLUSTER --&gt; DB_BACKUP
+
+    PROMTAIL_MULTI --&gt; LOKI_CLUSTER
+    METRICS --&gt; LOKI_CLUSTER</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Consideraciones de Escalabilidad</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Escala Horizontal</label><label for="__tabbed_2_2">Escala Vertical</label><label for="__tabbed_2_3">Alta Disponibilidad</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><strong>Múltiples instancias API</strong> detrás de load balancer</li>
+<li><strong>Cluster de Loki</strong> para mayor capacidad de almacenamiento</li>
+<li><strong>Múltiples Promtail</strong> para recolección distribuida</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><strong>Incrementar recursos</strong> de los contenedores existentes</li>
+<li><strong>Optimizar consultas</strong> a Loki para mejor rendimiento</li>
+<li><strong>Tuning de configuraciones</strong> para mayor throughput</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><strong>Health checks</strong> automáticos en todos los servicios</li>
+<li><strong>Failover automático</strong> con restart policies</li>
+<li><strong>Backups regulares</strong> de datos críticos</li>
+<li><strong>Monitoreo proactivo</strong> con alertas</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Próximo Paso</p>
+<p>Ahora que entiendes la arquitectura completa, continúa con la <a href="../../servidor/droplet-setup/">configuración del servidor</a> para implementar este sistema paso a paso.</p>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Última actualización">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2 de julio de 2025 05:43:32 UTC">2 de julio de 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/tu-usuario/fail2ban-dashboard" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://alertasfail2ban.xmakuno.com" target="_blank" rel="noopener" title="alertasfail2ban.xmakuno.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.4c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64h185.3c2.2 20.4 3.3 41.8 3.3 64m28.8-64h123.1c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64m112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7m-209 0H18.6c30-74.1 93.6-130.9 172-151.6-25.5 34.2-45.3 87.7-55.3 151.6M8.1 192h123.1c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64m186.6 254.6c-11.6-26-20.9-58.2-27-94.6h176.6c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5-11.2 10.7-20.5 13.9-27.8 13.9s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6-78.4-20.7-142-77.5-172-151.6zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.2-87.7 55.3-151.6h116.7z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>
