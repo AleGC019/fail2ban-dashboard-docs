@@ -1,7 +1,7 @@
 site_name: Fail2ban Dashboard - Documentación Técnica
 site_description: Documentación completa del sistema de monitoreo Fail2ban
 site_author: Alejandro Gómez
-site_url: https://alegc019.github.io/fail2ban-dashboard-docs
+site_url: https://github.com/AleGC019/fail2ban-dashboard-docs.git
 
 theme:
   name: material
