@@ -1,0 +1,97 @@
+site_name: Fail2ban Dashboard - Documentación Técnica
+site_description: Documentación completa del sistema de monitoreo Fail2ban
+site_author: Alejandro Gómez
+site_url: https://alegc019.github.io/fail2ban-dashboard-docs
+
+theme:
+  name: material
+  language: es
+  favicon: assets/text.png
+  logo: assets/logo.png
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      primary: blue grey
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - admonition
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.superfences
+  - toc:
+      permalink: "#"
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - attr_list
+  - md_in_html
+
+nav:
+  - Inicio: index.md
+  - Arquitectura del Sistema:
+    - Descripción General: arquitectura/overview.md
+    - Componentes: arquitectura/components.md
+    - Diagramas: arquitectura/diagrams.md
+  - Configuración del Servidor:
+    - Preparación del Droplet: servidor/droplet-setup.md
+    - Seguridad: servidor/security.md
+    - Software Base: servidor/software.md
+  - Servicios Backend:
+    - Fail2ban: servicios/fail2ban.md
+    - Promtail: servicios/promtail.md
+    - Loki: servicios/loki.md
+    - API FastAPI: servicios/api.md
+    - Caddy: servicios/caddy.md
+  - Frontend Dashboard:
+    - Introducción: frontend/overview.md
+    - Configuración: frontend/setup.md
+    - Funcionalidades: frontend/features.md
+  - Despliegue y Operación:
+    - Instalación: deployment/installation.md
+    - Mantenimiento: deployment/maintenance.md
+    - Troubleshooting: deployment/troubleshooting.md
+  - Seguridad: security/overview.md
+  - API Reference: api/reference.md
+
+plugins:
+  - search:
+      lang: es
+  - git-revision-date-localized:
+      fallback_to_build_date: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/tu-usuario/fail2ban-dashboard
+    - icon: fontawesome/solid/globe
+      link: https://alertasfail2ban.xmakuno.com
