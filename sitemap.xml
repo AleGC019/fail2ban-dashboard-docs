@@ -2,102 +2,102 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/api/authentication/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/api/reference/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/arquitectura/components/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/arquitectura/diagrams/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/arquitectura/overview/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/deployment/installation/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/deployment/maintenance/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/deployment/troubleshooting/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/frontend/components/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/frontend/deployment/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/frontend/features/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/security/best-practices/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/security/fail2ban/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/security/overview/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/security/ssl-tls/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/servicios/api/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/servicios/caddy/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/servicios/docker/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/servicios/fail2ban/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/servicios/loki/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/servicios/promtail/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/servidor/droplet-setup/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/servidor/security/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
     <url>
          <loc>https://github.com/AleGC019/fail2ban-dashboard-docs.git/servidor/software/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-03</lastmod>
     </url>
 </urlset>
