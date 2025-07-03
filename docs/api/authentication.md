@@ -3,11 +3,11 @@
 ## Modelo de Seguridad Actual
 
 !!! info "Configuración Actual"
-    El sistema actualmente **NO** requiere autenticación para acceder a la API, ya que está diseñado para uso interno y está protegido por:
+    **No se requiere autenticación para acceder a la documentación de la API, pero sí para poder realizar la prueba a las rutas**. El sistema está protegido por:
     
-    - **🔒 Proxy reverso**: Solo accesible a través de Caddy
-    - **🛡️ Firewall**: Puerto 8000 no expuesto directamente
-    - **🌐 Red privada**: API solo accesible desde la red Docker interna
+    * **🔒 Proxy reverso**: Solo accesible a través de Caddy
+    * **🛡️ Firewall**: Puerto 8000 no expuesto directamente
+    * **🌐 Red privada**: API solo accesible desde la red Docker interna
 
 ## 🔄 Implementación Futura
 

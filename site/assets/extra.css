@@ -1,0 +1,37 @@
+/* Estilos personalizados para SecureDash (Fail2ban Dashboard) */
+
+:root {
+  --md-primary-fg-color:        #15372F; /* Verde oscuro principal */
+  --md-primary-bg-color:        #E8F1EC; /* Fondo claro */
+  --md-accent-fg-color:         #E8F1EC; /* Blanco cálido */
+  --md-accent-bg-color:         #15372F; /* Verde para acento */
+
+  --md-typeset-color:           #15372F;
+  --md-typeset-a-color:         #1E4D42;
+}
+
+.md-header, .md-tabs {
+  background-color: #15372F;
+  color: #E8F1EC;
+}
+
+.md-footer {
+  background-color: #1E4D42;
+  color: #E8F1EC;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  color: #15372F;
+}
+
+.md-nav__title,
+.md-nav__link,
+.md-nav__item {
+  color: #15372F;
+}
+
+.md-nav__link--active {
+  background-color: #E8F1EC;
+}
